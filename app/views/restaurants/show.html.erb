@@ -1,0 +1,18 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+
+  <h3>Category: <%= @restaurant.category.capitalize %></h3>
+
+  <p> <i class="fas fa-map"></i> <%= @restaurant.address %></p>
+  <p> <i class="fas fa-phone"></i> <%= @restaurant.phone_number %></p>
+
+<% @restaurant.reviews.each do |review| %>
+  <%= review.content %>
+  (<%= review.rating %>)
+<% end %>
+<p> </p>
+<%= link_to 'Laisser un commentaire', new_restaurant_review_path(@restaurant) %>
+
+<p> </p>
+<%= link_to 'Retour liste', restaurants_path(@restaurant) %>
+</div>
